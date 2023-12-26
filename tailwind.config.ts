@@ -1,20 +1,101 @@
-import type { Config } from 'tailwindcss'
+/* eslint-disable @typescript-eslint/no-var-requires */
+const colors = require("tailwindcss/colors");
+const defaultTheme = require("tailwindcss/defaultTheme");
 
-const config: Config = {
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  darkMode: "class",
   content: [
-    './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
-    './src/components/**/*.{js,ts,jsx,tsx,mdx}',
-    './src/app/**/*.{js,ts,jsx,tsx,mdx}',
+    "./index.html",
+    "./src/**/*.{js,ts,jsx,tsx}",
+    "./app/**/*.{js,ts,jsx,tsx,mdx}",
+    "./pages/**/*.{js,ts,jsx,tsx,mdx}",
+    "./components/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
     extend: {
+      colors: {
+        primary: {
+          50: "#eff6ff",
+          100: "#dbeafe",
+          200: "#bfdbfe",
+          300: "#93c5fd",
+          400: "#60a5fa",
+          500: "#3b82f6",
+          600: "#2563eb",
+          700: "#1d4ed8",
+          800: "#1e40af",
+          900: "#1e3a8a",
+        },
+        secondary: {
+          500: "#5223E2",
+        },
+        ...colors,
+      },
+      fontFamily: {
+        body: [
+          "Inter",
+          "ui-sans-serif",
+          "system-ui",
+          "-apple-system",
+          "system-ui",
+          "Segoe UI",
+          "Roboto",
+          "Helvetica Neue",
+          "Arial",
+          "Noto Sans",
+          "sans-serif",
+          "Apple Color Emoji",
+          "Segoe UI Emoji",
+          "Segoe UI Symbol",
+          "Noto Color Emoji",
+        ],
+        sans: [
+          "Inter",
+          "ui-sans-serif",
+          "system-ui",
+          "-apple-system",
+          "system-ui",
+          "Segoe UI",
+          "Roboto",
+          "Helvetica Neue",
+          "Arial",
+          "Noto Sans",
+          "sans-serif",
+          "Apple Color Emoji",
+          "Segoe UI Emoji",
+          "Segoe UI Symbol",
+          "Noto Color Emoji",
+        ],
+        "red-hat-display": ["Red Hat Display"],
+        lato: ["Lato"],
+        inter: ["Inter"],
+      },
+      borderWidth: {
+        DEFAULT: "1px",
+        0: "0",
+        2: "2px",
+        3: "3px",
+        4: "4px",
+        6: "6px",
+        8: "8px",
+      },
+      minHeight: {
+        ...defaultTheme.height,
+      },
+      minWidth: {
+        ...defaultTheme.width,
+      },
       backgroundImage: {
-        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'gradient-conic':
-          'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+        hero: "url('../assets/hero.svg')",
+        "hero-icons": "url('../assets/hero-icons.svg')",
+        partner: "url('../assets/partner-bg.svg')",
       },
     },
   },
   plugins: [],
-}
-export default config
+  future: {
+    hoverOnlyWhenSupported: true,
+  },
+};
